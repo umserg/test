@@ -1,25 +1,25 @@
 <div class="col-sm-6 col-sm-offset-3">
     <div class="panel panel-default">
-        <div class="panel-heading">Reset Password</div>
+        <div class="panel-heading">Скидання Пароля</div>
             <div class="panel-body">
                 <form id="reset-form" action="/reset" method="post" role="form" style="display: block;">
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" name="password" id="password" title="password" placeholder="New password...">
+                            <input type="password" class="form-control" name="password" id="password" title="password" placeholder="Новий пароль...">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" name="confirm" id="confirm" title="confirm" placeholder="Confirm password...">
+                            <input type="password" class="form-control" name="confirm" id="confirm" title="confirm" placeholder="Повтори пароль...">
                         </div>
                         <input type="hidden" name="token" id="token" value="{{token}}">
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="submit" name="reset" id="reset" tabindex="4" class="form-control btn btn-login" value="Reset Password">
+                                <input type="submit" name="reset" id="reset" tabindex="4" class="form-control btn btn-login" value="Скинути пароль">
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
             </div>
         <div>
         <div class="panel-footer">
-            <a href="/login">Or Sign In</a>
+            <a href="/login">Або ввійти</a>
         </div>
     </div>
 </div>
