@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-     "test": "jest --passWithNoTests"
+     "test": "jest"
 
   },
   "dependencies": {
