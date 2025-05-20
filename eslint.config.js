@@ -6,7 +6,7 @@ export default [
       ecmaVersion: "latest"
     },
     rules: {
-      "no-console": "warn",
+      "no-console": "off",  // Дозволити console.log
       "indent": ["error", 2],
       "semi": ["error", "always"]
     }
