@@ -12,7 +12,7 @@ jobs:
         run: npm install
 
       - name: Запуск авто-тестів
-        run: npm test
+        run: npm test -- --coverage
 
   lint:
     runs-on: ubuntu-latest
