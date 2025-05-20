@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "devDependencies": {
+    "eslint": "^9.27.0",
     "jest": "^29.7.0",
     "nodemon": "^3.0.2",
     "supertest": "^7.1.0"
