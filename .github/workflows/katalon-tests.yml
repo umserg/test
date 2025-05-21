@@ -1,0 +1,33 @@
+name: Run Katalon Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Завантаження репозиторію
+        uses: actions/checkout@v3
+
+      - name: Встановлення Katalon Studio
+        run: |
+          wget https://download.katalon.com/10.2.0/Katalon_Studio_Linux_64-10.2.0.tar.gz
+          tar -xzf Katalon_Studio_Linux_64-10.2.0.tar.gz
+          mv Katalon_Studio_Linux_64 katalon
+
+      - name: Запуск тестів Katalon
+        run: |
+          ./katalon/katalonc -noSplash -runMode=console \
+          -projectPath="$GITHUB_WORKSPACE" \
+          -testSuitePath="TestSuites/LoginTests" \
+          -browserType="Chrome"
+
+      - name: Завантаження звіту тестів
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test-Reports
+          path: Reports/
