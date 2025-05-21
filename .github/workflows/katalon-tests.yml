@@ -19,6 +19,9 @@ jobs:
           tar -xzf Katalon_Studio_Linux_64-10.2.0.tar.gz
           mv Katalon_Studio_Linux_64 katalon
 
+      - name: Створення папки Reports
+        run: mkdir -p Reports
+
       - name: Запуск тестів Katalon
         run: |
           ./katalon/katalonc -noSplash -runMode=console \
@@ -27,7 +30,7 @@ jobs:
           -browserType="Chrome"
 
       - name: Завантаження звіту тестів
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: Test-Reports
           path: Reports/
