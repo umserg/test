@@ -1,0 +1,25 @@
+name: Run Robot Framework Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Завантаження репозиторію
+        uses: actions/checkout@v3
+
+      - name: Встановлення залежностей
+        run: pip install robotframework robotframework-seleniumlibrary
+
+      - name: Запуск тестів
+        run: robot -d Reports __tests__/login_tests.robot
+
+      - name: Завантаження звіту
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test-Reports
+          path: Reports/
