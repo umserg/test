@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "287b13b0-72c1-4b86-a56a-298736f536bc",
+		"name": "Auth Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45296019",
+		"_collection_link": "https://umserg-1.postman.co/workspace/blog~b869f7e1-d136-4d99-b19e-d38dd8cba872/collection/45296019-287b13b0-72c1-4b86-a56a-298736f536bc?action=share&source=collection_link&creator=45296019"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response contains token\", function () {\r",
+							"    try {\r",
+							"        var jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"token\");\r",
+							"    } catch (e) {\r",
+							"        console.error(\"Response is not JSON:\", pm.response.text());\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"!Pasword2025\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"!Pasword2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "5368"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14f8-3JmZKXb2itlVFL5ZPN7iLT49yeI\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3Ax4Slbv_Axh-fcBNBU21kv2FY4cNbKQx2.FaSaXN2RR0Qg5LuVbkhrhn4rAAphbR0JRF0L8dtZu3Y; Path=/; Expires=Sun, 25 May 2025 16:25:30 GMT; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 May 2025 16:15:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "<!doctype html><html lang=\"en\"><head>\n<!-- Required meta tags -->\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n<title>Блог Пост</title>\n<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n<script  src=\"https://code.jquery.com/jquery-3.3.1.min.js\" integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\" crossorigin=\"anonymous\"></script>\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>\n<!-- Bootstrap validator JS and CSS -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css\"/>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js\"></script>\n<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"#\" crossorigin=\"anonymous\">\n<link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/stylesheet.css\" />\n<script src=\"../javascripts/index.js\"></script>\n</head>\n<body>\n    <nav class=\"navbar navbar-expand-md navbar-dark bg-primary\">\n        <a class=\"navbar-brand abs\" href=\"/\">Блог Пост</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsingNavbar\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"navbar-collapse collapse\" id=\"collapsingNavbar\">\n            <ul class=\"navbar-nav ml-auto\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" id=\"log_out\" href=\"/logout\">Вийти</a>\n                </li>\n            </ul>\n        </div>\n    </nav>\n    <main class=\"container\">\n        <div class=\"row\">\n            <div class=\"column col-sm-12\">\r\n                    \r\n                </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-3\">\n                <div class=\"list-group \">\n                    <a href=\"/\" class=\"list-group-item list-group-item-action active\" id=\"dashboard\">Панель</a>\n                    <a id=\"add_new_post_link\" href=\"/post\" class=\"list-group-item list-group-item-action\">Додати новий запис</a>\n                    <a id=\"profile\" href=\"/profile\" class=\"list-group-item list-group-item-action\">Мій профіль</a>\n                    <a href=\"/logout\" class=\"list-group-item list-group-item-action\">Вийти</a>\n                </div>\n            </div>\n            <div class=\"col-md-9\">\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <div class=\"row\">\n                            <div class=\"col-md-2 border-right\">\n                                <h4 id=\"posts_heading\">Записи</h4>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <a id=\"add_new_post_btn\" href=\"/post\">\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary\">Додати новий</button>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"row\">&nbsp;</div>\n                        <div class=\"row\">\n                            <table id=\"post_listing\" class=\"table table-hover\">\n                                <thead class=\"bg-light\">\n                                    <tr>\n                                        <th>Заголовок</th>\n                                        <th>Автор</th>\n                                        <th>Коментарі</th>\n                                        <th>Дата</th>\n                                        <th>Редагування</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td>\n                                            <a href=\"/post/681b347381ccd34568143b28\">\n                                                <small>Перший пост</small>\n                                            </a>\n                                        </td>\n                                        <td>\n                                            <small>sergspam@ukr.net</small>\n                                        </td>\n                                        <td>\n                                            <small>1</small>\n                                        </td>\n                                        <td>\n                                            <small>Published Wed, May 7th, 2025</small>\n                                        </td>\n                                        <td>\n                                            <a href=\"#\">\n                                                <i class=\"fa fa-pencil-square-o\"></i>\n                                            </a>\n                                            <a href=\"#\">\n                                                <i class=\"fa fa-trash\"></i>\n                                            </a>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </main>\n        <footer>\n            <div class=\"footer-copyright text-center py-3\">\n                <hr>\n                <p>&copy; Sergey Umanets | \n                    <a href=\"\">Privacy Policy</a> |\n                    <a href=\"\">Terms of Use</a>\n                </p>\n            </div>\n        </footer>\n    </body>\n</html>"
+				}
+			]
+		}
+	]
+}
