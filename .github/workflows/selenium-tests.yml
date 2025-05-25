@@ -1,0 +1,25 @@
+name: Run Selenium Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Завантаження репозиторію
+        uses: actions/checkout@v3
+
+      - name: Встановлення залежностей
+        run: pip install selenium
+
+      - name: Запуск тестів
+        run: python -m unittest tests/login_test.py
+
+      - name: Завантаження звіту
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test-Reports
+          path: reports/
